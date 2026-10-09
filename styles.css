@@ -1,0 +1,156 @@
+/* ==============================================================================
+   ESTILOS PERSONALIZADOS - CIUDADANOS DEL FUTURO (PRIMARIA COLOMBIA)
+   ============================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-heading: 'Fredoka', cursive, sans-serif;
+  --font-body: 'Quicksand', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #f8fafc;
+  color: #1e293b;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Scrollbar amigable */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 9999px;
+  border: 2px solid #f1f5f9;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Efectos 3D y botones lúdicos */
+.btn-pressable {
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.15);
+}
+.btn-pressable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.15);
+}
+.btn-pressable:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* Botones estilo Kahoot! con volumen y contraste */
+.kahoot-btn {
+  position: relative;
+  transition: all 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25);
+}
+.kahoot-btn:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.25);
+}
+.kahoot-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* Tarjeta con halo resplandeciente */
+.card-glow {
+  transition: all 0.3s ease;
+}
+.card-glow:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px -10px rgba(99, 102, 241, 0.2);
+}
+
+/* Animaciones suaves */
+@keyframes floatAnim {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float {
+  animation: floatAnim 4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+/* Estilo interactivo para el Semáforo Emocional */
+.traffic-light-bulb {
+  transition: all 0.3s ease;
+  filter: grayscale(80%) opacity(40%);
+  cursor: pointer;
+}
+.traffic-light-bulb.active {
+  filter: grayscale(0%) opacity(100%);
+  transform: scale(1.1);
+  box-shadow: 0 0 25px currentColor;
+}
+
+/* ==============================================================================
+   ESTILOS PARA DIPLOMA IMPRIMIBLE (CERTIFICADO OFICIAL ESCOLAR)
+   ============================================================================== */
+.diploma-frame {
+  position: relative;
+  background: #ffffff;
+  border: 12px double #0284c7;
+  outline: 4px solid #f59e0b;
+  outline-offset: -8px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.diploma-watermark {
+  background-image: radial-gradient(circle, rgba(14, 165, 233, 0.04) 10%, transparent 10%);
+  background-size: 20px 20px;
+}
+
+/* Reglas especiales para la impresión limpia del Diploma */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #diploma-printable-area, #diploma-printable-area * {
+    visibility: visible;
+  }
+  #diploma-printable-area {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: white !important;
+    border: none !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  @page {
+    size: letter landscape;
+    margin: 0.5cm;
+  }
+}
